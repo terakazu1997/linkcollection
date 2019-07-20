@@ -1,0 +1,83 @@
+#header{
+    width: 100%;
+    height: 75px;
+    background: #111;
+    position: fixed;
+    z-index: 1000;
+}
+#header #headerInner{
+    width: 970px;
+    margin: 0 auto;
+    position: absolute;
+}
+#header #headerInner h1{
+    position: absolute;
+    margin:30px 40px;
+    font-size: 22px;
+    color: #FFF;
+    font-weight: bold;
+}
+#header #headerInner nav ul{
+    position: absolute;
+    left: 150px;
+}
+#header #headerInner nav ul li{
+    float: left;
+    font-size: 14px;
+    margin-right: 20px;
+}
+#header #headerInner nav ul .headLink{
+    margin-top:20px;
+}
+
+#header #headerInner nav ul li a{
+    color: #FFF;
+    font-weight: bold;
+    border-bottom: 1px solid #FFF;
+}
+#header #headerInner nav ul li a:hover{
+	transition: 0.4s;
+    border-bottom: 1px solid #d68010;
+}
+
+#header #headerInner nav ul .search{
+    margin-top:18px;
+}
+#header #headerInner nav ul .search #searchText{
+    position: absolute;
+    height: 22px;
+    width: 200px;
+    border-radius:6px;
+    border: 1px solid #1b2538;
+}
+#header #headerInner nav ul .search #searchText:focus{
+    outline: none;
+    border: 1px solid #d68010;
+    box-shadow: 0 0 5px 2px rgba(241, 146, 22, 0.815);
+}
+#header #headerInner .search img{
+    position: absolute;
+    margin-left:190px;
+    width: 16px;
+    height: 16px;
+}
+@media screen and (max-width: 1000px){
+    #header #headerInner{
+        width: 728px;
+    }
+}
+@media screen and(min-width: 1000px) and (max-width:1350px){
+    #header #headerInner{
+        width: 970px;
+    }
+}
+@media screen and (min-width: 1350px) and (max-width:1670px){
+    #header #headerInner{
+        width: 1300px;
+    }
+}
+@media screen and (min-width: 1670px) and (max-width:1980px){
+    #header #headerInner{
+        width: 1640px;
+    }
+}

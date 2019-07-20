@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>リンク集</title>
+    <link rel="stylesheet" href="css/link.css">
+</head>
+<body>
+    <div id = "app">
+        <header>
+            <div id ="header">
+                <div id="headerInner">
+                    <h1>リンク集</h1>
+                    <nav>
+                        <ul id="nav" class="clearfix">
+                            <li class ="headLink" id = "proStart">
+                                <a href="#">ヘッダーリンク1</a>
+                            </li>
+                            <li class ="headLink" id ="note"><a href="#">ヘッダーリンク2</a></li>
+                            <li class ="headLink" id ="team"><a href="#">ヘッダーリンク3</a></li>
+                            <li class="search"><input id="searchText" placeholder="リンク" name="searchText" type="text" v-model="keyword" v-focus></li>
+                            <li class="search"><a href="#"><img src="img/search.svg"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="inContent crearfix">
+                <ul class="box">
+                    <li class="item" v-for="linkList in linkLists" :key="linkList.linkTitle">
+                        <section>
+                            <div class="imgLink">
+                                <a :href="linkList.anchorLink" target="_blank"><img :src="linkList.imgSrc"></a>
+                            </div>
+                            <div class="linkTitle">
+                                <a :href="linkList.anchorLink" target="_blank"><h3>{{linkList.linkTitle}}</h3></a>
+                            </div>
+                        </section>
+                    </li>
+                </ul>       
+            </div>
+        </main>
+    </div>
+</body>
+<script src="js/axios.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/app.js"></script>
+</html>
