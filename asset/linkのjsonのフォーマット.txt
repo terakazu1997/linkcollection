@@ -1,0 +1,7 @@
+{
+    "links":[
+        {"linkTitle": "リンク先名","anchorLink":"リンク先URL","imgSrc": "img/画像ファイル"},
+        {"linkTitle": "リンク先名","anchorLink":"リンク先URL","imgSrc": "img/画像ファイル"},
+        {"linkTitle": "リンク先名","anchorLink":"リンク先URL","imgSrc": "img/画像ファイル"},
+    ]
+}
