@@ -1,4 +1,32 @@
 var links=null;
+var headComponent = {
+    props: ['keyword'],
+    template: `
+        <header>
+            <div id ="header">
+                <div id="headerInner">
+                    <h1>リンク集</h1>
+                    <nav>
+                        <ul id="nav" class="clearfix">
+                            <li class ="headLink" id = "proStart">
+                                <a href="#">ヘッダーリンク1</a>
+                            </li>
+                            <li class ="headLink" id ="note"><a href="#">ヘッダーリンク2</a></li>
+                            <li class ="headLink" id ="team"><a href="#">ヘッダーリンク3</a></li>
+                            <li class="search">
+                                <input id="searchText" placeholder="リンク" name="searchText" type="text" 
+                                        v-bind:value="keyword"
+                                        v-on:input="$emit('input', $event.target.value)"
+                                        v-focus></li>
+                            <li class="search"><a href="#"><img src="img/search.svg"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    `
+}
+
 Vue.directive('focus', {
     inserted: function (el) {
         el.focus();
@@ -19,6 +47,9 @@ var app  = new Vue({
         axios
             .get("../asset/link.json")
             .then(response => (links =this.linkLists= response.data.links))
+    },
+    components:{
+        'head-component':headComponent
     },
     methods:{
         getResult(){
