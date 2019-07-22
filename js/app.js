@@ -1,6 +1,6 @@
-var links=null;
+var links = getLinks().links;
 var headComponent = {
-    props: ['keyword'],
+    props: ['key'],
     template: `
         <header>
             <div id ="header">
@@ -15,8 +15,7 @@ var headComponent = {
                             <li class ="headLink" id ="team"><a href="#">ヘッダーリンク3</a></li>
                             <li class="search">
                                 <input id="searchText" placeholder="リンク" name="searchText" type="text" 
-                                        v-bind:value="keyword"
-                                        v-on:input="$emit('input', $event.target.value)"
+                                        v-model="computedKey"
                                         v-focus></li>
                             <li class="search"><a href="#"><img src="img/search.svg"></a></li>
                         </ul>
@@ -24,9 +23,19 @@ var headComponent = {
                 </div>
             </div>
         </header>
-    `
-}
+    `,
+    computed: {
+        computedKey: {
+            get() {
+                return this.key;
+            },
+            set(val) {
+                this.$emit("input", val);
+            }
+        }
 
+    }
+}
 Vue.directive('focus', {
     inserted: function (el) {
         el.focus();
@@ -43,13 +52,11 @@ var app  = new Vue({
             this.getResult()
         }
     },
-    mounted(){
-        axios
-            .get("../asset/link.json")
-            .then(response => (links =this.linkLists= response.data.links))
-    },
     components:{
         'head-component':headComponent
+    },
+    mounted(){
+        this.linkLists=getLinks().links
     },
     methods:{
         getResult(){

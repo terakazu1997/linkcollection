@@ -1,0 +1,9 @@
+function getLinks(){
+    var allLinks ={
+        "links":[
+            {linkTitle: "リンク先名",anchorLink:"リンク先URL",imgSrc: "画像格納先"},
+            {linkTitle: "リンク先名",anchorLink:"リンク先URL",imgSrc: "画像格納先"}
+        ]
+    }
+    return allLinks;
+}
