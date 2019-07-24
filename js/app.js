@@ -72,14 +72,13 @@ var app  = new Vue({
             }
         },
         replaceText:function(str){
-            return str.replace(/[\u30a1-\u30f6a-zａ-ｚ０-９]/g, function(match) {
-                if(str.match(/[\u30a1-\u30f6]/g)){
-                    return String.fromCharCode(match.charCodeAt(0) - 0x60)
-                }
-                var chr = str.match(/[a-za-z]/g)? match.charCodeAt(0) & ~32: match.charCodeAt(0) - 0xFEE0;
-                return String.fromCharCode(chr)
-                
-            })
+            var chr ="";
+            if(str.match(/[\u30a1-\u30f6]/g)){
+                chr =String.fromCharCode(str.charCodeAt(0) - 0x60)
+            }
+            chr = str.match(/[ａ-ｚＡ-Ｚ０-９]/g)? String.fromCharCode(str.charCodeAt(0) - 65248): str
+            chr = chr.match(/[a-z]/g)? chr.toUpperCase(): chr;
+            return chr;
         }
     }
 })
